@@ -1,11 +1,11 @@
 {
-    "name": "ossbrownie/bpm-online",
+    "name": "pbcarprice/bpm-online",
     "description": "API access to a single marketing management platform 'CRM-system bpm’online'",
     "license": "MIT",
     "type": "library",
     "keywords": ["brownie", "bpm", "bpm-online", "bpmonline", "terrasoft"],
     "homepage": "https://github.com/ossbrownie/bpm-online",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "authors": [
         {
             "name": "brownie",

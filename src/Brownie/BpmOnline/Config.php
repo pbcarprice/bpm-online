@@ -18,6 +18,7 @@ use Brownie\Util\StorageArray;
  * @method string   getUserDomain()             Returns the domain of the user bpm'online.
  * @method string   getUserName()               Returns the login of the user bpm'online.
  * @method string   getUserPassword()           Returns the password of the user bpm'online.
+ * @method string   getCsrfEnabled()            Returns if CSRF is enabled
  */
 class Config extends StorageArray
 {
@@ -57,5 +58,10 @@ class Config extends StorageArray
          * User password.
          */
         'userPassword' => 'dev',
+
+        /**
+         * CSRF enabled
+         */
+        'csrfEnabled' => true,
     ];
 }

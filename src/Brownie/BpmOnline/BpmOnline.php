@@ -153,17 +153,20 @@ class BpmOnline extends StorageArray
                 json_encode($contract->toArray())
             )
             ->addCookie($this->getAuthentication()['.aspxauth'])
-            ->addCookie($this->getAuthentication()['bpmcsrf'])
             ->addHeader(
                 $this
                     ->getHttpClient()
                     ->createHeader('Authorization', 'Cookie')
-            )
-            ->addHeader(
-                $this
-                    ->getHttpClient()
-                    ->createHeader('BPMCSRF', $this->getAuthentication()['bpmcsrf']->getValue())
             );
+
+        if ($this->getConfig()->getCsrfEnabled()) {
+            $request->addCookie($this->getAuthentication()['bpmcsrf'])
+                ->addHeader(
+                    $this
+                        ->getHttpClient()
+                        ->createHeader('BPMCSRF', $this->getAuthentication()['bpmcsrf']->getValue())
+                );
+        }
 
         $response = $this->getHttpClient()->request($request, $attempts, [200, 500]);
         $contractResponse = $contract->getResponse($response->getBody());
